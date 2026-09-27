@@ -3,12 +3,15 @@ from typing import override
 from manim import *
 
 # -------------------------- Settings --------------------------
-DARK_MODE = True
-I_FILL = 0.75
+DARK_MODE = False
+
+
+I_STR = r"\int H_x\,dx"
+I_FILL = 0.8
 
 SHOW_TITLE = False
-TITLE_TEX = MathTex(r"\text{Evaluar:}")
-TITLE_SCALE = 1.0
+TITLE_TEX = MathTex(r"\text{Hallar:}")
+TITLE_SCALE = 1.85
 
 SHOW_FOOTER = False
 FOOTER_TEX = MathTex(
@@ -34,7 +37,7 @@ class Int(Scene):
             FOOTER_TEX.to_edge(DOWN, buff=0.5).set_color(FONT_COLOR).scale(FOOTER_SCALE)
         )
 
-        i = MathTex(r"\Re(f(z))\qquad\Im(f(z))", color=FONT_COLOR)
+        i = MathTex(I_STR, color=FONT_COLOR)
         i.set_width(config.frame_width * I_FILL)
 
         if SHOW_TITLE:
