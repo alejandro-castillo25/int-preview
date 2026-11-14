@@ -22,13 +22,13 @@ FOOTER_SCALE = 1.0
 
 COLORS: dict[str, dict[str, ManimColor]] = {
     "dark": {
-        "bg": WHITE,
-        "font": BLACK
+        "bg": BLACK,
+        "font": WHITE
     },
     "light": {
         # ? Not fully BLACK, because then the animation wont play properly
-        "bg": ManimColor("#010101"),
-        "font": WHITE
+        "bg": WHITE,
+        "font": ManimColor("#010101")
     }
 }
 # --------------------------------------------------------------
