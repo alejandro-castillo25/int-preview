@@ -3,27 +3,39 @@ from typing import override
 from manim import *
 
 # -------------------------- Settings --------------------------
-DARK_MODE = False
+DARK_MODE = True
 
 
-I_STR = r"\int H_x\,dx"
-I_FILL = 0.8
+I_TEX = MathTex(r"\int_0^n x^2 \,\lceil x \rceil,\qquad n \in \mathbb Z^+")
+I_FILL = 0.85
+# 0.85
 
-SHOW_TITLE = False
-TITLE_TEX = MathTex(r"\text{Hallar:}")
-TITLE_SCALE = 1.85
+SHOW_TITLE = True
+TITLE_TEX = MathTex(r"\text{Evaluar:}")
+TITLE_SCALE = 1.8
 
 SHOW_FOOTER = False
 FOOTER_TEX = MathTex(
-    r"\text{Sabiendo que:}\quad \text{erf}(x)= \frac 2 {\sqrt \pi } \int_0^x e^{-t^2}\,dt"
+    r"C: \text{El segmento de recta de } z = 0 \, \text a \, z = 2 + i"
 )
 FOOTER_SCALE = 1.0
 
+COLORS = {
+    "dark": {
+        "bg": WHITE,
+        "font": BLACK
+    },
+    "light": {
+        # ? Not fully BLACK, because then the animation wont play properly
+        "bg": ManimColor("#010101"),
+        "font": WHITE
+    }
+}
 # --------------------------------------------------------------
 
 
-FONT_COLOR = WHITE if DARK_MODE else ManimColor("#010101")
-BG_COLOR = BLACK if DARK_MODE else WHITE
+BG_COLOR = COLORS["dark"]["bg"] if DARK_MODE else COLORS["light"]["bg"]
+FONT_COLOR = COLORS["dark"]["font"] if DARK_MODE else COLORS["light"]["font"]
 
 
 config.background_color = BG_COLOR
@@ -37,7 +49,7 @@ class Int(Scene):
             FOOTER_TEX.to_edge(DOWN, buff=0.5).set_color(FONT_COLOR).scale(FOOTER_SCALE)
         )
 
-        i = MathTex(I_STR, color=FONT_COLOR)
+        i = I_TEX.set_color(FONT_COLOR)
         i.set_width(config.frame_width * I_FILL)
 
         if SHOW_TITLE:
