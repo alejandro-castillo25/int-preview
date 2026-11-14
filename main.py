@@ -10,9 +10,9 @@ I_TEX = MathTex(r"\int_0^n x^2 \,\lceil x \rceil,\qquad n \in \mathbb Z^+")
 I_FILL = 0.85
 # 0.85
 
-SHOW_TITLE = True
-TITLE_TEX = MathTex(r"\text{Evaluar:}")
-TITLE_SCALE = 1.8
+SHOW_HEADER = True
+HEADER_TEX = MathTex(r"\text{Evaluar:}")
+HEADER_SCALE = 1.8
 
 SHOW_FOOTER = False
 FOOTER_TEX = MathTex(
@@ -38,7 +38,7 @@ config.background_color = BG_COLOR
 class Int(Scene):
     @override
     def construct(self) -> None:
-        title = TITLE_TEX.to_edge(UP, buff=0.5).set_color(FONT_COLOR).scale(TITLE_SCALE)
+        header = HEADER_TEX.to_edge(UP, buff=0.5).set_color(FONT_COLOR).scale(HEADER_SCALE)
         footer = (
             FOOTER_TEX.to_edge(DOWN, buff=0.5).set_color(FONT_COLOR).scale(FOOTER_SCALE)
         )
@@ -46,8 +46,8 @@ class Int(Scene):
         i = I_TEX.set_color(FONT_COLOR)
         i.set_width(config.frame_width * I_FILL)
 
-        if SHOW_TITLE:
-            self.play(Write(title))
+        if SHOW_HEADER:
+            self.play(Write(header))
 
         self.play(Write(i), run_time=2)
 
