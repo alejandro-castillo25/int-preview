@@ -20,7 +20,7 @@ FOOTER_TEX = MathTex(
 )
 FOOTER_SCALE = 1.0
 
-COLORS = {
+COLORS: dict[str, dict[str, ManimColor]] = {
     "dark": {
         "bg": WHITE,
         "font": BLACK
