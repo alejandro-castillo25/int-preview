@@ -20,16 +20,10 @@ FOOTER_TEX = MathTex(
 )
 FOOTER_SCALE = 1.0
 
+# ? light -> font is not fully BLACK, because then the animation wont play properly
 COLORS: dict[str, dict[str, ManimColor]] = {
-    "dark": {
-        "bg": BLACK,
-        "font": WHITE
-    },
-    "light": {
-        # ? Not fully BLACK, because then the animation wont play properly
-        "bg": WHITE,
-        "font": ManimColor("#010101")
-    }
+    "dark": {"bg": BLACK, "font": WHITE},
+    "light": {"bg": WHITE, "font": ManimColor("#010101")},
 }
 # --------------------------------------------------------------
 
